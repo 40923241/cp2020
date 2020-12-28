@@ -20,7 +20,12 @@
 <p>and write a program that prints out all the elements of the list that are less than 5.</p>
 <pre class="tw-data-text tw-text-large XcVN5d tw-ta" data-placeholder="翻譯" dir="ltr"><span lang="zh-TW">並寫一個程序，列出列表中小於5的所有數。<br/><br/><span> (Extras:</span><br/>  額外:<br/></span>    1.Instead of printing the elements one by one, make a new list that has all the<br/> elements less than 5 from this list in it and print out this new list.<br/><span lang="zh-TW">    1.</span><span lang="zh-TW">不是一個一個地打出元素，而是創建一個新列表，其中該列表中的所有元素少於5個，並打出該新列表。<br/></span>   <br/>    2.Write this in one line of Python.<br/>    2.用一行python寫出來<br/><br/>    3.<span>Ask user for a number and return a list that contains only elements from the <br/>original list </span><code class="highlighter-rouge">a</code><span><span> </span>that are smaller than that number given by the user.</span><br/>    3.<span lang="zh-TW">向使用者詢問一個數字，然後返回一個列表，該列表僅包含原始列表a中小於用戶給定數字的元素。</span></pre>
 <pre class="tw-data-text tw-text-large XcVN5d tw-ta" data-placeholder="翻譯" dir="ltr"><span lang="zh-TW"><br/><br/>This week’s exercise hits on a topic critical for all types and styles of programming: lists. <br/>Lists are basically an ordered way of grouping things (called elements) - the cool thing about lists<br/>in Python is that you can have a list that contains objects of multiple types. <br/>Your list can mix between strings, integers, objects, other lists, what have you.<br/></span></pre>
-<pre class="tw-data-text tw-text-large XcVN5d tw-ta" data-placeholder="翻譯" dir="ltr" id="tw-target-text"><span lang="zh-TW">本週的練習涉及一個對所有類型和風格的編程都至關重要的主題：列表。列表基本上是一種將事物（稱為元素）進行分組的有序<br/>方式-Python中列表的最酷的功能是您可以擁有一個包含多種類型對象的列表。您的列表可以混合在字符串，<br/>整數，對象，其他列表之間，包括您所擁有的。</span></pre>
+<pre class="tw-data-text tw-text-large XcVN5d tw-ta" data-placeholder="翻譯" dir="ltr"><span lang="zh-TW">本週的練習涉及一個對所有類型和風格的編程都至關重要的主題：列表。列表基本上是一種將事物（稱為元素）進行分組的有序<br/>方式-Python中列表的最酷的功能是您可以擁有一個包含多種類型對象的列表。您的列表可以混合在字符串，<br/>整數，對象，其他列表之間，包括您所擁有的。<br/><br/></span></pre>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+for x in a:
+ if(x&lt;10):
+ print(x)</pre>
+<pre class="tw-data-text tw-text-large XcVN5d tw-ta" data-placeholder="翻譯" dir="ltr" id="tw-target-text"><span lang="zh-TW"><br/><br/></span></pre>
 <pre class="tw-data-text tw-text-large XcVN5d tw-ta" data-placeholder="翻譯" dir="ltr" id="tw-target-text"><span lang="zh-TW"> </span></pre>
 <p>kaggle:  <a href="https://www.kaggle.com/wtf40923241/hw3333333333" title="https://www.kaggle.com/wtf40923241/hw3333333333">https://www.kaggle.com/wtf40923241/hw3333333333</a></p>
 <p>_____________________________________________________</p>
@@ -44,6 +49,42 @@
 	<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]<br/><br/><span>given a 3 by 3 list of lists that represents a Tic Tac Toe game board, <br/>tell me whether anyone has won, and tell me which player won, if any. <br/>A Tic Tac Toe win is 3 in a row - either in a row, a column, or a diagonal. <br/>Don’t worry about the case where TWO people have won - assume that in every board there will only be one winner.</span></span></code></pre>
 <pre class="tw-data-text tw-text-large XcVN5d tw-ta" data-placeholder="翻譯" dir="ltr" id="tw-target-text"><span lang="zh-TW">給定一個代表Tic Tac Toe遊戲板的3 x 3列表，請告訴我是否有人贏了，並告訴我哪個玩家贏了（如果有）<br/>。井字遊戲的勝利是連續3個-連續，一列或對角線。不必擔心會有兩個人獲勝的情況-假設在每個董事會中只有一個獲勝者。</span></pre>
 <pre class="tw-data-text tw-text-large XcVN5d tw-ta" data-placeholder="翻譯" dir="ltr" id="tw-target-text"><span lang="zh-TW"></span></pre>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import numpy
+game = [
+[2,2,1],
+[1,1,2],
+[1,2,1]]
+set_r = ()
+set_c = ()
+def line_match(game):
+for i in range(3):
+set_r = set(game[i])
+if len(set_r) == 1 and game[i][0] != 0:
+return game[i][0]
+return 0
+#transposed column function for future use
+#def column(game):
+# trans = numpy.transpose(game)
+# for i in range(3):
+# set_r = set(trans[i])
+# if len(set_r) == 1 and trans[i][0] != 0:
+# return list(set_r)[0]
+
+def diagonal_match(game):
+if game[1][1] != 0:
+if game[1][1] == game[0][0] == game[2][2]: 
+return game[1][1]
+elif game[1][1] == game[0][2] == game[2][0]:
+return game[1][1] 
+return 0
+if line_match(game) &gt; 0: 
+print (str(line_match(game)) + str(" row wins!"))
+if line_match(numpy.transpose(game)) &gt; 0:
+print (str(line_match(numpy.transpose(game))) + str(" column wins!"))
+if diagonal_match(game) &gt; 0:
+print (str(diagonal_match(game)) + str(" diagonal wins!"))</pre>
+<p><br/><br/></p>
+<p><span></span></p>
 <p><span></span></p>
 <p><span>kaggle:  <a href="https://www.kaggle.com/wtf40923241/hw3-0026" title="https://www.kaggle.com/wtf40923241/hw3-0026">https://www.kaggle.com/wtf40923241/hw3-0026</a></span></p><h1>hw2</h1>
 <p>1.列出一乙數列</p>
