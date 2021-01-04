@@ -135,13 +135,15 @@ img.add_border {
         </header>
     <div id="tipue_search_content">hw3 << <a href='hw3.html'>Previous</a> <a href='hw1.html'>Next</a> >> hw1<br /><h1>hw2</h1>
 <p>1.列出一乙數列</p>
-<div class="line number1 index0 alt2"><code class="py keyword">import</code> <code class="py plain">urllib.request</code></div>
-<div class="line number3 index2 alt2"><code class="py plain">target_url </code><code class="py keyword">=</code> <code class="py string">"https://nfulist.herokuapp.com/?semester=1091&amp;courseno=0776"</code></div>
-<div class="line number5 index4 alt2"><code class="py plain">cp1b </code><code class="py keyword">=</code> <code class="py plain">[]</code></div>
-<div class="line number7 index6 alt2"><code class="py keyword">for</code> <code class="py plain">line </code><code class="py keyword">in</code> <code class="py plain">urllib.request.urlopen(target_url):</code></div>
-<div class="line number9 index8 alt2"><code class="py spaces">    </code><code class="py plain">cp1b.append(</code><code class="py functions">int</code><code class="py plain">(line.decode(</code><code class="py string">'utf-8'</code><code class="py plain">).rstrip()))</code></div>
-<div class="line number11 index10 alt2"><code class="py functions">print</code><code class="py plain">(cp1b)</code></div>
-<div class="line number11 index10 alt2"><code class="py plain"></code></div>
+<div class="line number1 index0 alt2">
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import urllib.request
+target_url = "https://nfulist.herokuapp.com/?semester=1091&amp;courseno=0776"
+cp1b = []
+for line in urllib.request.urlopen(target_url):
+    cp1b.append(int(line.decode('utf-8').rstrip()))
+print(cp1b)
+</pre>
+</div>
 <div class="line number11 index10 alt2"><code class="py plain">參考資料</code></div>
 <div class="line number11 index10 alt2"><a href="https://www.kaggle.com/mdecourse/cp2020-hw2" title="https://www.kaggle.com/mdecourse/cp2020-hw2">https://www.kaggle.com/mdecourse/cp2020-hw2</a></div><br />hw3 << <a href='hw3.html'>Previous</a> <a href='hw1.html'>Next</a> >> hw1</div>
         
